@@ -33,7 +33,7 @@ const Dashboardlayout = ({ children }: { children: React.ReactNode }) => {
     }, [user]);
 
     return (
-        <div>
+        <div className='h-screen overflow-auto'>
             <div className='fixed md:w-64 hidden md:block shadow-md shadow-black'>
                 <SideNavbar />
             </div>
