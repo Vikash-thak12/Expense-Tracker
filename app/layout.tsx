@@ -22,7 +22,6 @@ export default function RootLayout({
         <body className={inter.className}>
           <div className="w-full">
             <div className="flex flex-col h-screen background">
-              <Header />
               {children}
             </div>
           </div>
