@@ -4,27 +4,26 @@ export const navItems = [
     {
       id: 1,
       name: 'Dashboard',
-      icon: LayoutGrid
+      icon: LayoutGrid,
+      path: '/dashboard'
     },
     {
       id: 2,
       name: 'Budget',
-      icon: PiggyBank
+      icon: PiggyBank,
+      path: '/dashboard/budget'
     },
     {
       id: 3,
       name: 'Expense',
-      icon: ReceiptText
+      icon: ReceiptText,
+      path: '/dashboard/expense'
     },
     {
       id: 4,
       name: 'Upgrade',
-      icon: ShieldCheck
-    },
-    {
-      id: 5,
-      name: 'Reports',
-      icon: ShieldCheck
+      icon: ShieldCheck,
+      path: '/dashboard/upgrade'
     },
   ];
   
