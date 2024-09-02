@@ -10,7 +10,7 @@ const SideNavbar = () => {
     const path = usePathname();
 
     return (
-        <div className='h-screen w-64 shadow-md shadow-black px-5'>
+        <div className='h-screen w-64 px-5'>
             <Link href="/">
                 <Image
                     src="/assets/logo.svg"
