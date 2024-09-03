@@ -22,7 +22,7 @@ const Dashboardlayout = ({ children }: { children: React.ReactNode }) => {
                 router.replace('/dashboard/budget');
             }
 
-            console.log(result);
+            // console.log(result);
         }
     };
 
