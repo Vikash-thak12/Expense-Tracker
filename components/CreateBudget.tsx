@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
 import EmojiPicker from 'emoji-picker-react';
 import { Button } from './ui/button';
@@ -10,7 +10,7 @@ import { useUser } from '@clerk/nextjs';
 import { toast } from 'sonner';
 
 
-const CreateBudget = () => {
+const CreateBudget = ({refreshData}: {refreshData: any}) => {
     const [emojiIcon, setEmojiIcon] = useState('😅')
     const [openEmojiPicker, setOpenEmojiPicker] = useState(false)
 
@@ -42,6 +42,7 @@ const CreateBudget = () => {
             // Check if result is returned
             if (result) {
                 toast("Budget created Successfully");
+                refreshData();
             } else {
                 console.error("Insert failed: No result returned");
             }

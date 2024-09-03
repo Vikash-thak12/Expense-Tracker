@@ -1,5 +1,5 @@
 import React from 'react'
-interface BudgetItem {
+interface BudgetItemProps {
     id: number;
     name: string;
     amount: number;
@@ -9,7 +9,7 @@ interface BudgetItem {
     totalItem: number;
 }
 
-const BudgetItem = ({ budget }: { budget: BudgetItem }) => {
+const BudgetItem = ({ budget }: { budget: BudgetItemProps }) => {
     return (
         <div className='border p-3 rounded-lg cursor-pointer bg-gray-50'>
             <div className='flex gap-4 items-center justify-between'>
@@ -24,8 +24,14 @@ const BudgetItem = ({ budget }: { budget: BudgetItem }) => {
             </div>
             <div className='mt-5'>
                 <div className='flex justify-between items-center py-3'>
-                    <h1>$ {budget.totalSpend?budget.totalSpend:0} Spent</h1>
-                    <h1>$ {budget.amount-budget.totalItem} Remaining</h1>
+                    <div className='flex flex-col lg:flex-row lg:gap-1'>
+                        <h1>$ {budget.totalSpend ? budget.totalSpend : 0}</h1>
+                        <span>Spent</span>
+                    </div>
+                    <div className='flex flex-col lg:flex-row lg:gap-1'>
+                        <h1>$ {budget.amount - budget.totalItem} </h1>
+                        <span>Remaining</span>
+                    </div>
                 </div>
                 <div className='w-full bg-slate-300 h-2 rounded-full'>
                     <div className='w-[60%] bg-blue-600 h-2 rounded-full'>

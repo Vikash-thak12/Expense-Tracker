@@ -8,7 +8,7 @@ import { useUser } from '@clerk/nextjs';
 import BudgetItem from './BudgetItem';
 
 
-interface BudgetItem {
+interface BudgetItemProps {
     id: number;
     name: string;
     amount: number;
@@ -21,7 +21,7 @@ interface BudgetItem {
 
 const BudgetList = () => {
     const { user } = useUser();
-    const [budgetList, setBudgetList] = useState<BudgetItem[]>([])
+    const [budgetList, setBudgetList] = useState<BudgetItemProps[]>([])
 
     const getBudgetList = async () => {
         const email = user?.primaryEmailAddress?.emailAddress;
@@ -51,7 +51,8 @@ const BudgetList = () => {
     return (
         <div className='mt-7 overflow-hidden'>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                <CreateBudget />
+                <CreateBudget refreshData={() => getBudgetList()} />
+                
                 {
                     budgetList.map((budget, index) => (
                         <BudgetItem budget={budget} key={index} />
