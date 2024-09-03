@@ -67,7 +67,7 @@ const CreateBudget = ({refreshData}: {refreshData: any}) => {
                         <DialogDescription>
                             <div className='mt-5'>
                                 <Button variant={'outline'} onClick={() => setOpenEmojiPicker(!openEmojiPicker)} className='text-3xl p-3'>{emojiIcon}</Button>
-                                <div className='absolute'>
+                                <div className='absolute z-20'>
                                     <EmojiPicker open={openEmojiPicker} onEmojiClick={(e) => {
                                         setEmojiIcon(e.emoji)
                                         setOpenEmojiPicker(false)
