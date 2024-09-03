@@ -8,7 +8,7 @@ import { db } from '@/utils/dbConfig';
 import { Budgets, Expenses } from '@/utils/schema';
 import { useUser } from '@clerk/nextjs';
 import { and, desc, eq, getTableColumns, sql } from 'drizzle-orm';
-import { Trash } from 'lucide-react';
+import { PenBox, Trash } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
@@ -25,6 +25,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import UpdateBudget from '@/components/UpdateBudget';
 
 
 
@@ -95,7 +96,7 @@ const ExpenseComponent = ({ params }: { params: Params }) => {
     const deleteBudget = async () => {
         const deleteExpense = await db.delete(Expenses).where(eq(Expenses.budgetId, params.id)).returning();
 
-        if(deleteExpense) {
+        if (deleteExpense) {
             const result = await db.delete(Budgets).where(eq(Budgets.id, params.id))
         }
 
@@ -112,28 +113,33 @@ const ExpenseComponent = ({ params }: { params: Params }) => {
     return (
         <div className='p-4 lg:px-20 lg:py-10'>
             <h1 className='font-bold flex items-center justify-between text-3xl'>My Expenses
-                <AlertDialog>
-                    <AlertDialogTrigger>
-                        <Button className='text-xl gap-1' variant="destructive">
-                            <Trash />
-                            Delete
-                        </Button>
-                    </AlertDialogTrigger>
-                    <AlertDialogContent>
-                        <AlertDialogHeader>
-                            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                            <AlertDialogDescription>
-                                This will permanently delete your Budget
-                                and remove your data from our servers.
-                            </AlertDialogDescription>
-                        </AlertDialogHeader>
-                        <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={() => deleteBudget()}>Continue</AlertDialogAction>
-                        </AlertDialogFooter>
-                    </AlertDialogContent>
-                </AlertDialog>
+                <div className='flex items-center gap-2'>
+                    {/* <Button className='flex items-center gap-1 text-lg' variant={"secondary"}> <PenBox /> Edit</Button> */}
+                    <UpdateBudget budgetInfo={budgetInfo} refreshData={getBudgetInfo} />
 
+                    <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                            <Button className='text-lg gap-1' variant={"destructive"} >
+                                <Trash />
+                                Delete
+                            </Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                                <AlertDialogDescription>
+                                    This will permanently delete your Budget
+                                    and remove your data from our servers.
+                                </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogAction onClick={() => deleteBudget()}>Continue</AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
+
+                </div>
 
             </h1>
             <div className='grid grid-cols-1 md:grid-cols-2 mt-5 mb-3 gap-5'>
