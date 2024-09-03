@@ -1,6 +1,7 @@
 // utils/formatUserName.ts
 
 import type { UserResource } from '@clerk/types';
+import { FaSun, FaMotorcycle, FaMoon } from 'react-icons/fa';
 
 
 export const formatUserName = (user: UserResource | undefined | null): string => {
@@ -18,13 +19,24 @@ export const formatUserName = (user: UserResource | undefined | null): string =>
 
 
 export const getGreeting = () => {
-    const currentHour = new Date().getHours();
+  const currentHour = new Date().getHours();
 
-    if (currentHour < 12) {
-      return 'Good Morning';
-    } else if (currentHour < 18) {
-      return 'Good Afternoon';
-    } else {
-      return 'Good Evening';
-    }
-  };
+  if (currentHour < 12) {
+    return {
+      message: 'Good Morning',
+      icon: FaSun,
+    };
+  } else if (currentHour < 18) {
+    return {
+      message: 'Good Afternoon',
+      icon: FaMotorcycle,
+      // icon: <FaRegClock />
+    };
+  } else {
+    return {
+      message: 'Good Evening',
+      icon: FaMoon
+    };
+  }
+};
+

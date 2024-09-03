@@ -24,6 +24,7 @@ export default function RootLayout({
           <div className="w-full">
             <div className="flex flex-col h-screen background">
             <Toaster />
+            <Header />
               {children}
             </div>
           </div>

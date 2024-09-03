@@ -19,8 +19,10 @@ const BudgetItem = ({ budget }: { budget: BudgetItemProps }) => {
 
 
     return (
-        <Link href={`/dashboard/expense/${budget?.id}`} className='border p-3 rounded-lg cursor-pointer bg-gray-50 lg:h-[180px]'>
-            <div className='flex gap-4 items-center justify-between'>
+        <Link href={`/dashboard/expense/${budget?.id}`} >
+            <div className='border p-3 rounded-lg cursor-pointer bg-gray-50 lg:h-[170px]'>
+
+            <div className='flex gap-4 items-center justify-between rounded-md p-2 shadow-md shadow-black'>
                 <div className='flex gap-4 items-center'>
                     <h1 className='border text-3xl p-3 rounded-full'>{budget.icon}</h1>
                     <div>
@@ -30,7 +32,7 @@ const BudgetItem = ({ budget }: { budget: BudgetItemProps }) => {
                 </div>
                 <h2>${budget.amount}</h2>
             </div>
-            <div className='mt-5'>
+            <div className='mt-2'>
                 <div className='flex justify-between items-center py-3'>
                     <div className='flex flex-col lg:flex-row lg:gap-1'>
                         <h1 className='text-gray-500'>$ {budget.totalSpend ? budget.totalSpend : 0}</h1>
@@ -53,6 +55,8 @@ const BudgetItem = ({ budget }: { budget: BudgetItemProps }) => {
 
                     </div>
                 </div>
+            </div>
+                            
             </div>
         </Link>
     )

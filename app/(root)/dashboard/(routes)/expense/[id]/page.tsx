@@ -112,7 +112,7 @@ const ExpenseComponent = ({ params }: { params: Params }) => {
 
     return (
         <div className='p-4 lg:px-20 lg:py-10'>
-            <h1 className='font-bold flex items-center justify-between text-3xl'>My Expenses
+            <h1 className='font-bold flex items-center justify-between text-xl lg:text-3xl'>My Expenses
                 <div className='flex items-center gap-2'>
                     {/* <Button className='flex items-center gap-1 text-lg' variant={"secondary"}> <PenBox /> Edit</Button> */}
                     <UpdateBudget budgetInfo={budgetInfo} refreshData={getBudgetInfo} />
@@ -148,8 +148,8 @@ const ExpenseComponent = ({ params }: { params: Params }) => {
                 }
                 <AddExpense budgetId={params.id} refreshData={() => getBudgetInfo()} />
             </div>
-            <span className='font-bold text-yellow-400 text-3xl'>List of Expenses</span>
-            <div className='border rounded-lg mt-5 bg-white p-2'>
+            <span className='font-bold text-black text-2xl lg:text-3xl'>List of Expenses</span>
+            <div className='border rounded-lg mt-3 bg-white p-2'>
                 <ExpenseList expenseList={expenseList} refreshData={() => getBudgetInfo()} />
             </div>
         </div>

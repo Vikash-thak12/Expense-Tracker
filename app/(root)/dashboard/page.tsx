@@ -1,4 +1,6 @@
 "use client"
+import BarChartDashboard from '@/components/BarChartDashboard';
+import BudgetItem from '@/components/BudgetItem';
 import CardInfo from '@/components/CardInfo';
 import { db } from '@/utils/dbConfig';
 import { formatUserName, getGreeting } from '@/utils/formatUserName';
@@ -26,41 +28,54 @@ const Dashboard = () => {
   const [budgetList, setBudgetList] = useState<BudgetItemProps[]>([])
 
   const getBudgetList = async () => {
-      const email = user?.primaryEmailAddress?.emailAddress;
+    const email = user?.primaryEmailAddress?.emailAddress;
 
-      if (!email) {
-          console.error('User email is undefined');
-          return;
-      }
+    if (!email) {
+      console.error('User email is undefined');
+      return;
+    }
 
-      const result = await db.select({
-          ...getTableColumns(Budgets),
-          totalSpend: sql`sum(${Expenses.amount})`.mapWith(Number),
-          totalItem: sql`count(${Expenses.id})`.mapWith(Number)
-      }).from(Budgets)
-          .leftJoin(Expenses, eq(Budgets.id, Expenses.budgetId))
-          .where(eq(Budgets.createdBy, email)) // Use the email here
-          .groupBy(Budgets.id)
-          .orderBy(desc(Budgets.id));
+    const result = await db.select({
+      ...getTableColumns(Budgets),
+      totalSpend: sql`sum(${Expenses.amount})`.mapWith(Number),
+      totalItem: sql`count(${Expenses.id})`.mapWith(Number)
+    }).from(Budgets)
+      .leftJoin(Expenses, eq(Budgets.id, Expenses.budgetId))
+      .where(eq(Budgets.createdBy, email)) // Use the email here
+      .groupBy(Budgets.id)
+      .orderBy(desc(Budgets.id));
 
-      console.log("The budget is:", result);
-      setBudgetList(result)
+    console.log("The budget is:", result);
+    setBudgetList(result)
   };
 
   useEffect(() => {
-      user&&getBudgetList();
+    user && getBudgetList();
   }, [user]);
 
 
-  getGreeting()
+  const {message, icon} = getGreeting()
   return (
     <>
-      <div className='p-10 lg:px-20'>
-        <div className='shadow-md shadow-black p-5 mb-5'>
-          <h1 className='font-bold text-3xl'>{getGreeting()}, {userName}</h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad delectus aliquid iure quod esse impedit ratione perferendis possimus explicabo similique architecto, nobis sed error minus quisquam eaque in eveniet ea?</p>
+      <div className='p-5 lg:px-20'>
+        <div className='rounded-lg shadow-md shadow-black p-5 mb-5'>
+          <h1 className='font-bold py-2 text-4xl lg:text-3xl text-center'>{message}, {userName}</h1>
+          <p className='text-center'>Welcome to dashboard! Track budgets, visualize spending, and manage your finances effortlessly. Stay on top of your goals and make informed decisions with ease.</p>
         </div>
         <CardInfo budgetList={budgetList} />
+        <div className='grid grid-cols-1 md:grid-cols-3 mt-5 gap-5 rounded-md'>
+          <div className='col-span-1 md:col-span-2'>
+            <BarChartDashboard budgetList={budgetList} />
+          </div>
+          <div className='border border-black rounded-md grid grid-cols-1 gap-2 lg:gap-5 p-3 h-[460px] overflow-auto'>
+            <h1 className='font-bold text-center mb-2 mt-2 text-2xl'>Your Budgets</h1>
+            {
+              budgetList.map((budget,index) => (
+                <BudgetItem budget={budget} key={index} />
+              ))
+            }
+          </div>
+        </div>
       </div>
     </>
   )

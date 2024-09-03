@@ -20,6 +20,8 @@ const CardInfo = ({ budgetList }: { budgetList: BudgetItemProps[] }) => {
   const [totalBudget, setTotalBudget] = useState(0);
   const [totalSpend, setTotalSpend] = useState(0);
 
+
+  // Calculate total budget and total spent from the budget list.
   const calculateCardInfo = () => {
     console.log("The budget list is", budgetList);
     let totalBudget_ = 0;
@@ -43,7 +45,7 @@ const CardInfo = ({ budgetList }: { budgetList: BudgetItemProps[] }) => {
     <>
       {
         budgetList?.length > 0 ? (
-          <div className='mt-10'>
+          <div className='mt-5'>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
               <div className='bg-gray-500 p-5 flex items-center justify-between cursor-pointer rounded-lg'>
                 <div>
@@ -69,7 +71,7 @@ const CardInfo = ({ budgetList }: { budgetList: BudgetItemProps[] }) => {
             </div>
           </div>
         ) : (
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5'>
             {
               [1, 2, 3, 4, 5].map((index) => (
                 <Skeleton key={index} className='h-[100px] w-full animate-pulse bg-slate-200 rounded-md' />
@@ -78,8 +80,6 @@ const CardInfo = ({ budgetList }: { budgetList: BudgetItemProps[] }) => {
           </div>
 
         )
-
-
       }
     </>
   )

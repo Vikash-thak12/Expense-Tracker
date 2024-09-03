@@ -8,7 +8,7 @@ const Header = () => {
   const { userId } = auth();
 
   return (
-    <main className='px-4 py-2 lg:py-4   lg:w-[35%] w-[95%] mx-auto mt-10 rounded-full bg-gray-400'>
+    <header className='lg:hidden sticky top-0 left-0 right-0 mx-auto border-2 border-black px-4 py-2 lg:py-4 lg:w-[35%] w-[90%] mt-4 mb-2 rounded-full bg-gray-400 z-50'>
       <div className='flex items-center justify-between lg:px-10'>
         <Link href="/">
           <Image
@@ -19,12 +19,14 @@ const Header = () => {
             className='cursor-pointer'
           />
         </Link>
-        <Link href="/dashboard" className='px-3 lg:px-5 py-3 rounded-full bg-gray-900 text-white hover:bg-gray-700'>
-          <span className='text-sm font-bold'>Dashboard</span>
-        </Link>
-        <Link href="/profile" className='py-3 px-3 lg:px-5 rounded-full bg-gray-900 text-white hover:bg-gray-700'>
-          <span className='text-sm font-bold'>Profile</span>
-        </Link>
+        <nav className='flex items-center space-x-3 lg:space-x-5'>
+          <Link href="/dashboard" className='py-3 px-3 lg:px-5 rounded-full bg-gray-900 text-white hover:bg-gray-700'>
+            <span className='text-sm font-bold'>Dashboard</span>
+          </Link>
+          <Link href="/dashboard/budget" className='py-3 px-3 lg:px-5 rounded-full bg-gray-900 text-white hover:bg-gray-700'>
+            <span className='text-sm font-bold'>Budget</span>
+          </Link>
+        </nav>
         {
           userId !== null ? (
             <div className='flex items-center justify-center transform scale-150'>
@@ -37,7 +39,7 @@ const Header = () => {
           )
         }
       </div>
-    </main>
+    </header>
   );
 };
 

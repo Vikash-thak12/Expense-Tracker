@@ -111,8 +111,8 @@
 
 /* Global scrollbar styles for WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
-  height: 8px; /* Height of the scrollbar */
+  width: 4px; /* Width of the scrollbar */
+  height: 4px; /* Height of the scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
