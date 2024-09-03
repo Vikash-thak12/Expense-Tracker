@@ -43,7 +43,7 @@ const BudgetList = () => {
             .groupBy(Budgets.id)
             .orderBy(desc(Budgets.id));
 
-        console.log(result);
+        // console.log("Well the budget: ", result);
         setBudgetList(result)
     };
 

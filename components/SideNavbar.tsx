@@ -5,16 +5,18 @@ import Image from 'next/image'
 import { UserButton, useUser } from '@clerk/nextjs'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { formatUserName } from '@/utils/formatUserName'
 
 const SideNavbar = () => {
     const path = usePathname();
     const { user } = useUser()
-    const formattedName = `${user?.firstName
-        ? user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1).toLowerCase()
-        : ''} 
-    ${user?.lastName
-            ? user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1).toLowerCase()
-            : ''}`;
+    // const formattedName = `${user?.firstName
+    //     ? user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1).toLowerCase()
+    //     : ''} 
+    // ${user?.lastName
+    //         ? user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1).toLowerCase()
+    //         : ''}`;
+    const formattedName = formatUserName(user)
 
 
     return (
