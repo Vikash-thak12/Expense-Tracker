@@ -67,7 +67,7 @@ const ExpenseList = ({ expenseList, refreshData }: { expenseList: ExpenseProps[]
                 expenseList.map((expense) => (
                     <div key={expense.id} className='grid grid-cols-4  bg-slate-200 p-2 border-2 border-gray-400 mb-2 rounded-md cursor-pointer hover:scale-105 transition-all'>
                         <h2 className='text-sm'>{expense.name}</h2>
-                        <h2 className='text-sm'>$ {expense.amount}</h2>
+                        <h2 className='text-sm'>Rs. {expense.amount}</h2>
                         <h2 className='text-sm line-clamp-1'>{formatDateTime(expense.createdAt)}</h2>
                         <Trash className='text-red-900' onClick={() => deleteExpense(expense.id)} />
                         <h2>

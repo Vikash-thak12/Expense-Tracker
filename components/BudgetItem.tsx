@@ -30,16 +30,16 @@ const BudgetItem = ({ budget }: { budget: BudgetItemProps }) => {
                             <h2>{budget.totalItem} {budget.totalItem > 1 ? "Items" : "Item"}</h2>
                         </div>
                     </div>
-                    <h2>${budget.amount}</h2>
+                    <h2>Rs. {budget.amount}</h2>
                 </div>
                 <div className='mt-2'>
                     <div className='flex justify-between items-center py-3'>
                         <div className='flex flex-col lg:flex-row lg:gap-1'>
-                            <h1 className='text-gray-500'>$ {budget.totalSpend ? budget.totalSpend : 0}</h1>
+                            <h1 className='text-gray-500'>Rs. {budget.totalSpend ? budget.totalSpend : 0}</h1>
                             <span>Spent</span>
                         </div>
                         <div className='flex flex-col lg:flex-row lg:gap-1'>
-                            <h1 className='text-gray-500'>$ {budget.amount - budget.totalSpend} </h1>
+                            <h1 className='text-gray-500'>Rs. {budget.amount - budget.totalSpend} </h1>
                             <span>Remaining</span>
                         </div>
                     </div>

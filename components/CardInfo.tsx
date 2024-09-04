@@ -50,14 +50,14 @@ const CardInfo = ({ budgetList }: { budgetList: BudgetItemProps[] }) => {
               <div className='bg-gray-500 p-5 flex items-center justify-between cursor-pointer rounded-lg'>
                 <div>
                   <h1 className='font-bold text-2xl text-white'>Total Budget</h1>
-                  <h1 className='font-bold text-2xl text-white'>$ {totalBudget}</h1>
+                  <h1 className='font-bold text-2xl text-white'>Rs. {totalBudget}</h1>
                 </div>
                 <PiggyBank className='h-16 w-16 p-2 bg-gray-400 rounded-full' />
               </div>
               <div className='bg-gray-500 p-5 flex items-center justify-between cursor-pointer rounded-lg'>
                 <div>
                   <h1 className='font-bold text-2xl text-white'>Total Spent</h1>
-                  <h1 className='font-bold text-2xl text-white'>$ {totalSpend}</h1>
+                  <h1 className='font-bold text-2xl text-white'>Rs. {totalSpend}</h1>
                 </div>
                 <Receipt className='h-16 w-16 p-2 bg-gray-400 rounded-full' />
               </div>
