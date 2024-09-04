@@ -60,7 +60,7 @@ const Dashboard = () => {
       <div className='p-5 lg:px-20'>
         <div className='rounded-lg shadow-md shadow-black p-5 mb-5'>
           <h1 className='font-bold py-2 text-3xl lg:text-4xl text-center text-white'>{message}, {userName}</h1>
-          <p className='text-center text-base text-white'>Welcome to dashboard! Track budgets, visualize spending, and manage your finances effortlessly. Stay on top of your goals and make informed decisions with ease.</p>
+          <p className='text-center text-base text-white'>Welcome to dashboard! Track budgets, visualize spending, and manage your finances effortlessly.</p>
         </div>
         <CardInfo budgetList={budgetList} />
         <div className='grid grid-cols-1 md:grid-cols-3 mt-5 gap-5 rounded-md'>
