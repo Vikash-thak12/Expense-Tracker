@@ -59,8 +59,8 @@ const Dashboard = () => {
     <>
       <div className='p-5 lg:px-20'>
         <div className='rounded-lg shadow-md shadow-black p-5 mb-5'>
-          <h1 className='font-bold py-2 text-4xl lg:text-3xl text-center'>{message}, {userName}</h1>
-          <p className='text-center'>Welcome to dashboard! Track budgets, visualize spending, and manage your finances effortlessly. Stay on top of your goals and make informed decisions with ease.</p>
+          <h1 className='font-bold py-2 text-4xl lg:text-3xl text-center text-white'>{message}, {userName}</h1>
+          <p className='text-center text-white'>Welcome to dashboard! Track budgets, visualize spending, and manage your finances effortlessly. Stay on top of your goals and make informed decisions with ease.</p>
         </div>
         <CardInfo budgetList={budgetList} />
         <div className='grid grid-cols-1 md:grid-cols-3 mt-5 gap-5 rounded-md'>
@@ -68,7 +68,7 @@ const Dashboard = () => {
             <BarChartDashboard budgetList={budgetList} />
           </div>
           <div className='border border-black rounded-md grid grid-cols-1 gap-2 lg:gap-5 p-3 h-[460px] overflow-auto'>
-            <h1 className='font-bold text-center mb-2 mt-2 text-2xl'>Your Budgets</h1>
+            <h1 className='font-bold text-center mb-2 mt-2 text-2xl text-white'>Your Budgets</h1>
             {
               budgetList.map((budget,index) => (
                 <BudgetItem budget={budget} key={index} />

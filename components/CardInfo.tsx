@@ -49,22 +49,22 @@ const CardInfo = ({ budgetList }: { budgetList: BudgetItemProps[] }) => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
               <div className='bg-gray-500 p-5 flex items-center justify-between cursor-pointer rounded-lg'>
                 <div>
-                  <h1 className='font-bold text-2xl'>Total Budget</h1>
-                  <h1 className='font-bold text-2xl'>$ {totalBudget}</h1>
+                  <h1 className='font-bold text-2xl text-white'>Total Budget</h1>
+                  <h1 className='font-bold text-2xl text-white'>$ {totalBudget}</h1>
                 </div>
                 <PiggyBank className='h-16 w-16 p-2 bg-gray-400 rounded-full' />
               </div>
               <div className='bg-gray-500 p-5 flex items-center justify-between cursor-pointer rounded-lg'>
                 <div>
-                  <h1 className='font-bold text-2xl'>Total Spent</h1>
-                  <h1 className='font-bold text-2xl'>$ {totalSpend}</h1>
+                  <h1 className='font-bold text-2xl text-white'>Total Spent</h1>
+                  <h1 className='font-bold text-2xl text-white'>$ {totalSpend}</h1>
                 </div>
                 <Receipt className='h-16 w-16 p-2 bg-gray-400 rounded-full' />
               </div>
               <div className='bg-gray-500 p-5 flex items-center justify-between cursor-pointer rounded-lg'>
                 <div>
-                  <h1 className='font-bold text-2xl'>No. of Budgets</h1>
-                  <h1 className='font-bold text-2xl'>{budgetList.length}</h1>
+                  <h1 className='font-bold text-2xl text-white'>No. of Budgets</h1>
+                  <h1 className='font-bold text-2xl text-white'>{budgetList.length}</h1>
                 </div>
                 <Wallet className='h-16 w-16 p-2 bg-gray-400 rounded-full' />
               </div>

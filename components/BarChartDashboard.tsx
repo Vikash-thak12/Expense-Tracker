@@ -29,7 +29,7 @@ const BarChartDashboard = ({ budgetList }: { budgetList: BudgetItemProps[] }) =>
     }, []);
 
     return (
-        <div className='border border-black rounded-lg p-2'>
+        <div className='border border-black rounded-lg p-2 bg-white'>
             <h1 className='font-bold text-center mb-3 text-2xl'>Budget Visualization</h1>
             <div className="w-full">
                 <ResponsiveContainer width="100%" height={400}>
@@ -42,10 +42,11 @@ const BarChartDashboard = ({ budgetList }: { budgetList: BudgetItemProps[] }) =>
                                 dataKey="name"
                                 tick={{ fontSize: 12 }} // Adjust font size for better fitting
                                 interval={0} // Show all labels
+                                className='text-green'
                             />
                         )}
                         <YAxis />
-                        <Tooltip />
+                        {/* <Tooltip /> */}
                         <Legend />
                         <Bar dataKey="totalSpend" name='Total Spent' stackId="a" fill="green" />
                         <Bar dataKey="amount" name='Total Amount' stackId="a" fill="gray" />
