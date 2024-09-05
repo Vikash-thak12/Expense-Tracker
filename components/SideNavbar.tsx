@@ -45,9 +45,9 @@ const SideNavbar = () => {
                     ))
                 }
             </div>
-            <div className='fixed bottom-20 left-10 flex items-center justify-center gap-3 scale-125 cursor-pointer'>
+            <div className='fixed bottom-20 left-10  bg-[#171818] p-2 rounded-md flex items-center justify-center gap-3 scale-125 cursor-pointer'>
                 <UserButton />
-                <span>{formattedName}</span>
+                <span className='text-white'>{formattedName}</span>
 
             </div>
         </div>

@@ -45,10 +45,10 @@ const BudgetItem = ({ budget }: { budget: BudgetItemProps }) => {
                     </div>
                     <div className='w-full bg-slate-300 h-2 rounded-full'>
                         <div
-                            className={`bg-blue-600 h-2 rounded-full`}
+                            className={`h-2 rounded-full`}
                             style={{
                                 width: `${calculateProgressPercentage()}%`,
-                                backgroundColor: 'blue',
+                                backgroundColor: '#06cde9',
                                 transition: 'width 1s ease-in-out'
                             }}
                         >

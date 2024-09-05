@@ -148,7 +148,7 @@ const ExpenseComponent = ({ params }: { params: Params }) => {
                 }
                 <AddExpense budgetId={params.id} refreshData={() => getBudgetInfo()} />
             </div>
-            <span className='font-bold text-black text-2xl lg:text-3xl'>List of Expenses</span>
+            <span className='font-bold text-white text-2xl lg:text-3xl'>List of Expenses</span>
             <div className='border rounded-lg mt-3 bg-white p-2'>
                 <ExpenseList expenseList={expenseList} refreshData={() => getBudgetInfo()} />
             </div>
