@@ -37,7 +37,7 @@ const SideNavbar = () => {
                 {
                     navItems.map((item, index) => (
                         <Link href={item.path} key={index}>
-                            <h2 className={`w-full flex gap-3 items-center justify-start text-xl px-5 py-3 mb-10 rounded-md cursor-pointer hover:text-blue-200 hover-gradient-bg ${path === item.path && "bg-blue-500 text-white"}`}>
+                            <h2 className={`w-full flex gap-3 items-center justify-start text-xl px-5 py-3 mb-10 rounded-md cursor-pointer ${path === item.path ? "bg-[#06cde9]" : "text-white bg-gray-900"}`}>
                                 {<item.icon />}
                                 {item.name}
                             </h2>
